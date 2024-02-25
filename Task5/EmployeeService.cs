@@ -50,20 +50,21 @@ internal class EmployeeService
             }
             
             var endDate = startDate.AddDays(CountDaysOfWeek * choice -1);
-            if(endDate.Year != DateTime.Today.Year + 1)
+            if(endDate.Year == DateTime.Today.Year + 1)
             {
-                bool checkDate = true;
-                foreach(var employee in Employees)
-                {
-                    checkDate = checkDate && VerificateVacation(startDate, endDate, employee.Vacations); 
-                }
+                continue;
+            }
+            bool checkDate = true;
+            foreach (var employee in Employees)
+            {
+                checkDate = checkDate && VerificateVacation(startDate, endDate, employee.Vacations);
+            }
 
-                if(VerificateVacation(startDate, endDate, dates) && checkDate)
-                {
-                    
-                    days -= CountDaysOfWeek * choice;
-                    dates.Add(new StartEndDate(startDate,endDate));
-                }
+            if (checkDate && VerificateVacation(startDate, endDate, dates))
+            {
+
+                days -= CountDaysOfWeek * choice;
+                dates.Add(new StartEndDate(startDate, endDate));
             }
         }
         return dates;
