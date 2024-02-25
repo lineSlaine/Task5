@@ -82,6 +82,14 @@ internal class EmployeeService
                 {
                     return false;
                 }
+                else if(startDate <= vacation.StartDate && vacation.StartDate <= endDate)
+                {
+                    return false;
+                }
+                else if (startDate <= vacation.EndDate && vacation.EndDate <= endDate)
+                {
+                    return false;
+                }
             }
         }
         return true;

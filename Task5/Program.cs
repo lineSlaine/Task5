@@ -13,8 +13,13 @@ internal class Program
             try
             {
                 employeesCount = Convert.ToInt16(Console.ReadLine());
+                if(employeesCount > 10)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Введите число до 10!");
+                    continue;
+                }
                 check = true;
-                
             }
             catch
             {
