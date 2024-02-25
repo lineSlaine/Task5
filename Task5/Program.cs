@@ -6,8 +6,8 @@ internal class Program
     static void Main(string[] args)
     {
         int employeesCount = 0;
-        var check = false;
-        while (!check) 
+        var isNumberEntered = false;
+        while (!isNumberEntered) 
         {
             Console.Write("Введите кол-во сотрудников: ");
             try
@@ -19,7 +19,7 @@ internal class Program
                     Console.WriteLine("Введите число до 10!");
                     continue;
                 }
-                check = true;
+                isNumberEntered = true;
             }
             catch
             {

@@ -54,13 +54,13 @@ internal class EmployeeService
             {
                 continue;
             }
-            bool checkDate = true;
+            bool isVacationDatesVerificated = true;
             foreach (var employee in Employees)
             {
-                checkDate = checkDate && VerificateVacation(startDate, endDate, employee.Vacations);
+                isVacationDatesVerificated = isVacationDatesVerificated && VerificateVacation(startDate, endDate, employee.Vacations);
             }
 
-            if (checkDate && VerificateVacation(startDate, endDate, dates))
+            if (isVacationDatesVerificated && VerificateVacation(startDate, endDate, dates))
             {
 
                 days -= CountDaysOfWeek * choice;
